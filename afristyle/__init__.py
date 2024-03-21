@@ -42,8 +42,8 @@ def create_app():
   app.config.from_object(config)
   app.config['imagesPath'] = 'afristyle/static/images'
 
-  app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{db_config['user']}:{db_config['password']}@{db_config['host']}/{db_config['database']}"
-  # app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg2://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
+  # app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{db_config['user']}:{db_config['password']}@{db_config['host']}/{db_config['database']}"
+  app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg2://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
   
   # Initialiser la base de données
   db.init_app(app)
