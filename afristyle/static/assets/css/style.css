@@ -1,0 +1,88 @@
+/* Style général */
+
+body {
+  font-family: sans-serif;
+
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  column-gap: 5px;
+
+}
+
+.left-section{
+  width: 100%;
+  padding: 20px;
+  background-color: #f4f2f2c4;
+  border-radius: 5px;
+  
+} 
+.right-section {
+  width: 100%;
+  padding: 20px;
+
+  border-radius: 5px;
+  background-color: #edd5a8 ;
+}
+
+/* Zone de gauche */
+
+.left-section h2 {
+  margin-top: 0;
+}
+
+#paragraphs {
+  margin-top: 10px;
+}
+
+#addParagraphBtn, #publishBtn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #0073b7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#publishBtn {
+  float: right;
+}
+
+/* Zone de droite */
+
+.right-section h2 {
+  margin-top: 0;
+}
+
+.right-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.right-section input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#image {
+  margin-top: 5px;
+}
+
+p{
+  border: none;
+  width: 100%;
+  font-family: "sans-serif", "Georgia";
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+textarea{
+  border-radius: 10px;
+  border-color: rgba(128, 128, 128, 0.329);
+}

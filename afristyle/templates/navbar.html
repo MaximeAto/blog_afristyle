@@ -1,0 +1,31 @@
+<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('main.home') }}"><strong>AfriStyle</strong></a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto d-flex align-items-center">
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('main.home') }}">Intro <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('category.article_by_category', category='vetements') }}">Vêtements</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('category.article_by_category', category='chaussures') }}">Chaussures</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('category.article_by_category', category='accessoires') }}">Accéssoires</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('category.article_by_category', category='coiffures') }}">Coiffures</a>
+          </li>           
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('category.article_by_category', category='apropos') }}">A propos de nous </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  

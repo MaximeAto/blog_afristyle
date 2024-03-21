@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../static/assets/css/main.css" rel="stylesheet" />
+    <link href="../static/assets/css/style.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html"><strong>AfriStyle</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto d-flex align-items-center">
+            <li class="nav-item">
+            <a class="nav-link" href="./index.html">Intro <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./article.html">Vêtements</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./article.html">Chaussures</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./article.html">Accéssoires</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./article.html">Coiffures</a>
+              </li>           
+            <li class="nav-item">
+            <a class="nav-link" href="./about.html">A propos de nous </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </nav>
+    <div class="container">
+      <div class="left-section">
+        <div id="papier" class="article-post">
+          <div id="paragraphs"></div>
+        </div>
+        <button style="background-color: #212529" id="addParagraphBtn">
+          Ajouter un paragraphe
+        </button>
+        <button style="background-color: #212529" id="publishBtn">
+          Publier
+        </button>
+      </div>
+      <div class="right-section">
+        <h2>Paramètres</h2>
+        <label for="title">Titre :</label>
+        <input type="text" id="title" /><br /><br />
+        <label for="description">Description :</label>
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="3"
+        ></textarea>
+        <label for="category">Catégorie :</label>
+        <input type="text" id="category" /><br /><br />
+        <label for="image">Image principale :</label>
+        <input type="file" id="image" /><br /><br />
+      </div>
+    </div>
+
+    <script>
+      // Fonction pour ajouter un paragraphe dynamiquement
+      function addParagraph() {
+        const papier = document.getElementById("papier")
+
+        // Créer un élément div pour le paragraphe
+        const paragraph = document.createElement('div');
+        paragraph.classList.add('paragraph');
+        papier.appendChild(paragraph)
+
+
+        // Créer un élément p pour la saisie du contenu
+        const paragraphContent = document.createElement('p');
+        paragraphContent.classList.add('paragraph-content');
+        paragraphContent.contentEditable = true; // Permet l'édition du contenu
+
+        // Ajouter le contenu par défaut au paragraphe
+        paragraphContent.textContent = 'Saisir ici';
+
+        // Ajouter le paragraphe à la zone de paragraphes
+        paragraph.appendChild(paragraphContent);
+
+
+        // Ajouter le paragraphe à la zone de paragraphes
+        const paragraphsContainer = document.getElementById('paragraphs');
+        paragraphsContainer.appendChild(paragraph);
+      }
+
+      // Écouter l'événement "click" sur le bouton "Ajouter un paragraphe"
+      document.getElementById('addParagraphBtn').addEventListener('click', addParagraph);
+      document.getElementById('publishBtn').addEventListener('click', saveArticle);
+
+
+      function getPaperContent() {
+        // Récupérer l'élément papier
+        const papier = document.getElementById('papier');
+
+        // Créer un clone de l'élément papier
+        const papierClone = papier.cloneNode(true);
+
+        // Supprimer l'attribut contenteditable de tous les descendants de papierClone
+        const allEditableElements = papierClone.querySelectorAll('[contenteditable]');
+        for (const element of allEditableElements) {
+          element.removeAttribute('contenteditable');
+        }
+
+        // Convertir l'élément DOM en une chaîne de caractères HTML
+        const contenuHTML = papierClone.outerHTML;
+
+        return contenuHTML
+      }
+
+      function saveArticle() {
+
+        const category = document.getElementById('category').value;
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+        const image = document.getElementById('image').files[0];
+        const imageName = image.name;
+        const contenu = getPaperContent();
+
+
+        const formData = new FormData();
+        formData.append('category', category);
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('path', imageName);  // Assuming image upload
+        formData.append('contenu', contenu);
+        formData.append('image', image);
+
+        console.log(imageName);
+
+        fetch("{{ url_for('article.savearticle')}}", {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => {
+          if(!response.ok){
+              return response.json().then(data => {
+
+
+              });
+          }else{
+              return response.json().then(data => {
+                  // let url = data.message
+                  // window.location.href = url;
+              });
+          }
+        })
+        .catch(error => {
+        console.error('Erreur lors de la récupération des données:', error.message);
+        });
+      }
+    </script>
+  </body>
+</html>

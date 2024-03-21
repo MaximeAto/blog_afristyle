@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/assets/css/style.css">
+  <title>Document</title>
+
+</head>
+<body>
+  <div class="container">
+    <div class="card-content">
+      <div class="card-body">
+          <form id="formulaire" class="form-horizontal form-simple needs-validation" novalidate>
+              <fieldset class="form-group position-relative has-icon-left mb-0">
+                  <input type="text" class="form-control" id="user-name" name="user-name" placeholder="Your Username" required>
+                  <div class="form-control-position">
+                      <i class="la la-user pr-2"></i>
+                  </div>
+              </fieldset>
+              <fieldset class="form-group position-relative has-icon-left">
+                  <input type="password" class="form-control" id="user-password" name="user-password" placeholder="Enter Password" title="Au moins 8 caractères, incluant une lettre et un chiffre" required>
+                  <div class="form-control-position">
+                      <i class="la la-key pr-2"></i>
+                  </div>
+              </fieldset>
+              <div class="pb-1 mb-1">
+                  <span style="font-size: 12px;" class="info-text"><span style="color: red;">Conseil</span> : Utilisez au moins 8 caractères pour le mot de passe, incluant au moins une lettre, un chiffre et un caractère spécial.</span>
+              </div>
+              
+              <div class="form-group row">
+                  <div class="col-sm-6 col-12 text-center text-sm-left">
+                      <fieldset>
+                          <input type="checkbox" id="remember-me" class="chk-remember">
+                          <label for="remember-me"> Remember Me</label>
+                      </fieldset>
+                  </div>
+                  <div class="col-sm-6 col-12 text-center text-sm-right"><a href="recover-password.html" class="card-link">Forgot Password?</a></div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" onclick="validateForm(event)"><i class="ft-unlock"></i> Login</button>
+          </form>
+      </div>
+  </div>
+  </div>
+</body>
+</html>
