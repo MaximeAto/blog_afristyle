@@ -28,14 +28,15 @@ HEADER
 
 {% block content %}
 
+{% if articles %}
 <div class="container">
 	<div  class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
 		<div class="pl-4 pr-0 h-100 tofront">
 			<div class="row justify-content-between">
+				{% if a%}
 				<div class="col-md-6 pt-6 pb-6 align-self-center">
 					<h1 class="secondfont mb-3 font-weight-bold">{{articles[0].titre}}</h1>
 					<p class="mb-3">
-						{{articles[0].description}}
 					</p>
 					<button data-id="{{articles[0].id}}" class="article btn btn-dark">Lire plus</button>
 				</div>
@@ -182,6 +183,7 @@ FOOTER
 </div>
 <!-- End Footer -->
     
+{% endif %}
 <!--------------------------------------
 JAVASCRIPTS
 --------------------------------------->
