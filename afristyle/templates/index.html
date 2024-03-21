@@ -33,7 +33,6 @@ HEADER
 	<div  class="jumbotron jumbotron-fluid mb-3 pt-0 pb-0 bg-lightblue position-relative">
 		<div class="pl-4 pr-0 h-100 tofront">
 			<div class="row justify-content-between">
-				{% if a%}
 				<div class="col-md-6 pt-6 pb-6 align-self-center">
 					<h1 class="secondfont mb-3 font-weight-bold">{{articles[0].titre}}</h1>
 					<p class="mb-3">
@@ -51,7 +50,6 @@ HEADER
 <!--------------------------------------
 MAIN
 --------------------------------------->
-    
 <div class="container pt-4 pb-4">
 	<div class="row">
 		<div class="col-lg-6">
@@ -74,13 +72,25 @@ MAIN
 		<div class="col-lg-6">
 			<div class="flex-md-row mb-4 box-shadow h-xl-300">
 				<div class="mb-3 d-flex align-items-center">
+					<img height="80" src="./static/images/{{articles[2].image_principale}}">
+					<div class="pl-3">
+						<h2 class="mb-2 h6 font-weight-bold">
+						<a class="text-dark" href="./article.html">{{articles[2].titre}}</a>
+						</h2>
+						<div class="card-text text-muted small">
+							{{articles[3].description}}
+						</div>
+						<small class="text-muted">{{articles[2].date_publication}}</small>
+					</div>
+				</div>
+				<div class="mb-3 d-flex align-items-center">
 					<img height="80" src="./static/images/{{articles[3].image_principale}}">
 					<div class="pl-3">
 						<h2 class="mb-2 h6 font-weight-bold">
 						<a class="text-dark" href="./article.html">{{articles[3].titre}}</a>
 						</h2>
 						<div class="card-text text-muted small">
-							{{articles[3].description}}
+							{{articles[4].description}}
 						</div>
 						<small class="text-muted">{{articles[3].date_publication}}</small>
 					</div>
@@ -92,21 +102,9 @@ MAIN
 						<a class="text-dark" href="./article.html">{{articles[4].titre}}</a>
 						</h2>
 						<div class="card-text text-muted small">
-							{{articles[4].description}}
-						</div>
-						<small class="text-muted">{{articles[4].date_publication}}</small>
-					</div>
-				</div>
-				<div class="mb-3 d-flex align-items-center">
-					<img height="80" src="./static/images/{{articles[5].image_principale}}">
-					<div class="pl-3">
-						<h2 class="mb-2 h6 font-weight-bold">
-						<a class="text-dark" href="./article.html">{{articles[5].titre}}</a>
-						</h2>
-						<div class="card-text text-muted small">
 							{{articles[5].description}}
 						</div>
-						<small class="text-muted">{{articles[5].date_publication}}</small>
+						<small class="text-muted">{{articles[4].date_publication}}</small>
 					</div>
 				</div>
 			</div>
@@ -118,6 +116,21 @@ MAIN
 	<div class="row justify-content-between">
 		<div class="col-md-8">
 			<h5 class="font-weight-bold spanborder"><span>Plus  d'articles </span></h5>
+			<div class="mb-3 d-flex justify-content-between">
+				<div class="pr-3">
+					<h2 class="mb-1 h4 font-weight-bold">
+					<a class="text-dark" href="./article.html">{{articles[5].titre}}</a>
+					</h2>
+					<p>
+						{{articles[5].description}}
+					</p>
+					<div class="card-text text-muted small">
+						 AfriStyle
+					</div>
+					<small class="text-muted">{{articles[5].date_publication}}</small>
+				</div>
+				<img height="120" src="./static/images/{{articles[5].image_principale}}">
+			</div>
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
@@ -148,21 +161,6 @@ MAIN
 				</div>
 				<img height="120" src="./static/images/{{articles[7].image_principale}}">
 			</div>
-			<div class="mb-3 d-flex justify-content-between">
-				<div class="pr-3">
-					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">{{articles[8].titre}}</a>
-					</h2>
-					<p>
-						{{articles[8].description}}
-					</p>
-					<div class="card-text text-muted small">
-						 AfriStyle
-					</div>
-					<small class="text-muted">{{articles[8].date_publication}}</small>
-				</div>
-				<img height="120" src="./static/images/{{articles[8].image_principale}}">
-			</div>
 		</div>
 	</div>
 </div>
@@ -183,21 +181,26 @@ FOOTER
 </div>
 <!-- End Footer -->
     
-{% endif %}
+
 <!--------------------------------------
 JAVASCRIPTS
 --------------------------------------->
 <script>
 	// Récupérer le nom de l'image à partir de votre modèle ou d'une autre source de données
-	var nom_de_l_image1 = "{{ articles[0].image_principale}}";
-	var imageUrl1 = "./static/images/" + nom_de_l_image1;
+	if('{{articles[0]}}'){
+		var nom_de_l_image1 = "{{ articles[0].image_principale}}";
+		var imageUrl1 = "./static/images/" + nom_de_l_image1;
+		document.getElementById("background-image-div").style.backgroundImage = "url(" + imageUrl1 + ")";
+	}
 
-	var nom_de_l_image2 = "{{ articles[1].image_principale}}";
-	var imageUrl2 = "./static/assets/img/demo/blog5.jpg"
+	if("{{ articles[1].image_principale}}"){
+		var nom_de_l_image2 = "{{ articles[1].image_principale}}";
+		var imageUrl2 = "./static/assets/img/demo/blog5.jpg"
+		document.getElementById("back-2").style.backgroundImage = "url(" + imageUrl2 + ")";
+	}
 
-	// Mettre à jour le style de l'élément avec l'URL de l'image
-	document.getElementById("background-image-div").style.backgroundImage = "url(" + imageUrl1 + ")";
-	document.getElementById("back-2").style.backgroundImage = "url(" + imageUrl2 + ")";
+
+
 
 	// Récupérer tous les boutons "Lire plus"
 	const buttons = document.querySelectorAll('.article');
@@ -214,6 +217,7 @@ JAVASCRIPTS
 
 </script>
 
+{% endif %}
 
 <script src="./static/assets/js/vendor/jquery.min.js" type="text/javascript"></script>
 <script src="./static/assets/js/vendor/popper.min.js" type="text/javascript"></script>

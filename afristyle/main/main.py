@@ -15,7 +15,10 @@ def home():
     mashmallow_article = Mashmallow(many=True)
     article_data = mashmallow_article.dump(articles)
     
-    return render_template("index.html", articles = article_data )
+    if(len(article_data)):
+         return render_template("index.html", articles = article_data )
+    else:
+         return render_template("index.html")
 
 @main.route("/register")
 def register():

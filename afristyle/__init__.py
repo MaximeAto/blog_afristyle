@@ -13,22 +13,22 @@ def create_app():
   app = Flask(__name__, template_folder='templates', static_folder='static')
   CORS(app)
   
-  # db_config = {
-  #   'host': 'localhost',
-  #   'user': 'postgres',
-  #   'password': '10322',
-  #   'database': 'blogBd',
-  #   'port': '5432'
-  # }
+  db_config = {
+    'host': 'localhost',
+    'user': 'postgres',
+    'password': '10322',
+    'database': 'blogBd',
+    'port': '5432'
+  }
   
   # Connexion distante
-  db_config = {
-      'host': 'dpg-cnu9jf0cmk4c7394olm0-a.frankfurt-postgres.render.com',
-      'user': 'blogbd_gcvp_user',
-      'password': 'xQl9c2gWB0JWtNAahNOpV7XRqUIDbvUA',
-      'database': 'blogbd_gcvp',
-      'port': '5432'
-  }
+  # db_config = {
+  #     'host': 'dpg-cnu9jf0cmk4c7394olm0-a.frankfurt-postgres.render.com',
+  #     'user': 'blogbd_gcvp_user',
+  #     'password': 'xQl9c2gWB0JWtNAahNOpV7XRqUIDbvUA',
+  #     'database': 'blogbd_gcvp',
+  #     'port': '5432'
+  # }
   
   # db_config = {
   #   'host': 'localhost',
