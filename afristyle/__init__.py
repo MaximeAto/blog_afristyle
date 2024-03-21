@@ -21,12 +21,21 @@ def create_app():
   #   'port': '5432'
   # }
   
+  # Connexion distante
   db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '',
-    'database': 'blogbd',
+      'host': 'dpg-cnu8ihv79t8c73bus9ig-a.frankfurt-postgres.render.com',
+      'user': 'isjcrm_db_user',
+      'password': 'IOHNJHuykXu2InltZu62kSZdg0bwqzML',
+      'database': 'blogbd',
+      'port': '5432'
   }
+  
+  # db_config = {
+  #   'host': 'localhost',
+  #   'user': 'root',
+  #   'password': '',
+  #   'database': 'blogbd',
+  # }
 
   app.config['SECRET_KEY'] = config.SECRET_KEY
   #Charger les configurations à partir de l'objet config
