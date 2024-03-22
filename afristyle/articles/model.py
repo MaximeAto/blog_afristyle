@@ -7,7 +7,7 @@ class Article(db.Model):
 
   id = db.Column(db.Integer, primary_key=True, autoincrement=True)
   titre = db.Column(db.String(100))
-  contenu = db.Column(db.String(255))
+  contenu = db.Column(db.Text)
   date_publication = db.Column(db.DateTime, default=datetime.now)
   auteur = db.Column(db.String(50))
   description = db.Column(db.String(255), nullable=False)

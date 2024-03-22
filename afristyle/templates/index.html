@@ -187,17 +187,17 @@ JAVASCRIPTS
 --------------------------------------->
 <script>
 	// Récupérer le nom de l'image à partir de votre modèle ou d'une autre source de données
-	if('{{articles[0]}}'){
+	
 		var nom_de_l_image1 = "{{ articles[0].image_principale}}";
 		var imageUrl1 = "./static/images/" + nom_de_l_image1;
+		console.log(imageUrl1);
 		document.getElementById("background-image-div").style.backgroundImage = "url(" + imageUrl1 + ")";
-	}
 
-	if("{{ articles[1].image_principale}}"){
+
+
 		var nom_de_l_image2 = "{{ articles[1].image_principale}}";
 		var imageUrl2 = "./static/assets/img/demo/blog5.jpg"
 		document.getElementById("back-2").style.backgroundImage = "url(" + imageUrl2 + ")";
-	}
 
 
 

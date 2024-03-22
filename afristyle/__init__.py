@@ -23,10 +23,10 @@ def create_app():
   
   # Connexion distante
   db_config = {
-      'host': 'dpg-cnu9jf0cmk4c7394olm0-a.frankfurt-postgres.render.com',
-      'user': 'blogbd_gcvp_user',
-      'password': 'xQl9c2gWB0JWtNAahNOpV7XRqUIDbvUA',
-      'database': 'blogbd_gcvp',
+      'host': 'dpg-cnug8dcf7o1s739nt43g-a.frankfurt-postgres.render.com',
+      'user': 'blogbd_v1wk_user',
+      'password': 'JS6xPYO45MU4N9SHOSW2Yw6PQkDjKWQ1',
+      'database': 'blogbd_v1wk',
       'port': '5432'
   }
   
