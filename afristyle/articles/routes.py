@@ -58,3 +58,16 @@ def savearticle():
 
   return jsonify(message= "Article enregistré avec succès!")
 
+
+@article.route("/delete/<int:article_id>", methods=["DELETE"])
+def delete_article(article_id):
+    try:
+        article = Article.query.get(article_id)
+        if article:
+            db.session.delete(article)
+            db.session.commit()
+            return jsonify(message="Article deleted successfully"), 200
+        else:
+            return jsonify(message="Article not found"), 404
+    except Exception as e:
+        return jsonify(message="Error deleting article: " + str(e)), 500
