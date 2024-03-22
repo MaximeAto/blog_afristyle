@@ -14,12 +14,15 @@ body {
 }
 
 .left-section{
-  width: 100%;
+  max-width: 100%;
   padding: 20px;
   background-color: #f4f2f2c4;
   border-radius: 5px;
   
 } 
+.left-section p{
+  max-width: 100%;
+}
 .right-section {
   width: 100%;
   padding: 20px;
