@@ -8,6 +8,7 @@ from afristyle.articles.mashmallw import Mashmallow
 from sqlalchemy.exc import SQLAlchemyError
 
 
+
 article = Blueprint('article', __name__)
 
 @article.route("/article/<article_id>", methods=["GET"])
