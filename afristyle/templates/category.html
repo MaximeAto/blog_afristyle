@@ -27,51 +27,42 @@ Main
 <div class="container mt-5 mb-5">
 	<div class="row">
 		<div class="col-md-8">
+			{% for article in articles %}
+			{% if article.categorie == categorie %}
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">Nearly 200 Great Barrier Reef coral species also live in the deep sea</a>
+					<a class="text-dark" href="./article.html">{{article.titre}}</a>
 					</h2>
 					<p>
-						 There are more coral species lurking in the deep ocean that previously thought.
+						{{article.description}}
 					</p>
 					<div class="card-text text-muted small">
-						 Jake Bittle in SCIENCE
+						AfriStyle
 					</div>
-					<small class="text-muted">Dec 12 · 5 min read</small>
+					<small class="text-muted">{{article.date_publication}}</small>
 				</div>
-				<img height="120" src="../static/assets/img/demo/blog8.jpg">
+				<img height="120" src="../static/images/{{article.image_principale}}">
 			</div>
+			{% endif %}
+			{% if article.categorie == vêtements %}
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">East Antarctica's glaciers are stirring</a>
+					<a class="text-dark" href="./article.html">{{article.titre}}</a>
 					</h2>
 					<p>
-						 Nasa says it has detected the first signs of significant melting in a swathe of glaciers in East Antarctica.
+						{{article.description}}
 					</p>
 					<div class="card-text text-muted small">
-						 Jake Bittle in SCIENCE
+						AfriStyle
 					</div>
-					<small class="text-muted">Dec 12 · 5 min read</small>
+					<small class="text-muted">{{article.date_publication}}</small>
 				</div>
-				<img height="120" src="../static/assets/img/demo/1.jpg">
+				<img height="120" src="../static/images/{{article.image_principale}}">
 			</div>
-			<div class="mb-3 d-flex justify-content-between">
-				<div class="pr-3">
-					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">50 years ago, armadillos hinted that DNA wasn’t destiny</a>
-					</h2>
-					<p>
-						 Nasa says it has detected the first signs of significant melting in a swathe of glaciers in East Antarctica.
-					</p>
-					<div class="card-text text-muted small">
-						 Jake Bittle in SCIENCE
-					</div>
-					<small class="text-muted">Dec 12 · 5 min read</small>
-				</div>
-				<img height="120" src="../static/assets/img/demo/5.jpg">
-			</div>
+			{% endif %}
+			{% endfor %}
 		</div>
 	</div>
 </div>
@@ -81,12 +72,9 @@ Main
 	<footer class="bg-white border-top p-3 text-muted small">
 	<div class="row align-items-center justify-content-between">
 		<div>
-			<span class="navbar-brand mr-2"><strong>Mundana</strong></span> Copyright &copy;
+			<span class="navbar-brand mr-2"><strong>AfriStyle</strong></span> Copyright &copy;
 			<script>document.write(new Date().getFullYear())</script>
 			 . All rights reserved.
-		</div>
-		<div>
-			 Made with <a target="_blank" class="text-secondary font-weight-bold" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Mundana Theme</a> by WowThemes.net.
 		</div>
 	</div>
 	</footer>

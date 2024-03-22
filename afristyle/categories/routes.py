@@ -14,5 +14,5 @@ def article_by_category(category):
   mashmallow_article = Mashmallow(many=True)
   article_data = mashmallow_article.dump(articles)
   
-  return render_template("category.html", articles = article_data )
+  return render_template("category.html", articles = article_data , categorie= category )
 
