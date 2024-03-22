@@ -37,7 +37,7 @@ HEADER
 					<h1 class="secondfont mb-3 font-weight-bold">{{articles[0].titre}}</h1>
 					<p class="mb-3">
 					</p>
-					<button data-id="{{articles[0].id}}" class="article btn btn-dark">Lire plus</button>
+					<a style="color: aliceblue;" data-id="{{articles[0].id}}" class="article btn btn-dark">Lire plus</a>
 				</div>
 				<div id="background-image-div" class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;">	</div>
 			</div>
@@ -187,35 +187,35 @@ JAVASCRIPTS
 --------------------------------------->
 <script>
 	// Récupérer le nom de l'image à partir de votre modèle ou d'une autre source de données
-	
-		var nom_de_l_image1 = "{{ articles[0].image_principale}}";
-		var imageUrl1 = "./static/images/" + nom_de_l_image1;
-		console.log(imageUrl1);
-		document.getElementById("background-image-div").style.backgroundImage = "url(" + imageUrl1 + ")";
+	var nom_de_l_image1 = "{{ articles[0].image_principale}}";
+	var imageUrl1 = "../static/images/" + nom_de_l_image1;
+	console.log(imageUrl1);
+	document.getElementById("background-image-div").style.backgroundImage = "url(" + imageUrl1 + ")";
 
+	var nom_de_l_image2 = "{{ articles[1].image_principale}}";
+	var imageUrl2 = "../static/assets/img/demo/blog5.jpg"
+	document.getElementById("back-2").style.backgroundImage = "url(" + imageUrl2 + ")";
 
+// Récupérer tous les éléments <a> avec la classe "article"
+	const articleLinks = document.querySelectorAll('a.article');
 
-		var nom_de_l_image2 = "{{ articles[1].image_principale}}";
-		var imageUrl2 = "./static/assets/img/demo/blog5.jpg"
-		document.getElementById("back-2").style.backgroundImage = "url(" + imageUrl2 + ")";
-
-
-
-
-	// Récupérer tous les boutons "Lire plus"
-	const buttons = document.querySelectorAll('.article');
-
-	// Ajouter un gestionnaire d'événements click à chaque bouton
-	buttons.forEach(button => {
-			button.addEventListener('click', () => {
-					// Récupérer l'identifiant de l'article à partir de l'attribut data-id
-					const articleId = button.dataset.id;
-
-					window.location = "/article/" + articleId
+	// Parcourir tous les liens et leur ajouter un gestionnaire d'événements 'click'
+	articleLinks.forEach(link => {
+			link.addEventListener('click', function(event) {
+					// Empêcher le comportement par défaut du lien
+					event.preventDefault();
+					
+					// Récupérer l'URL de redirection à partir de l'attribut 'data-id'
+					const articleId = this.getAttribute('data-id');
+					const redirectURL = `/article/${articleId}`; // Exemple d'URL de redirection
+					
+					// Rediriger l'utilisateur vers l'URL récupérée
+					window.location.href = redirectURL;
 			});
 	});
 
 </script>
+
 
 {% endif %}
 

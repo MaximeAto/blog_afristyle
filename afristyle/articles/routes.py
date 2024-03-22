@@ -25,7 +25,7 @@ def getarticle(article_id):
     
 
 @article.route("/nouvelle_article")
-def register():
+def redaction():
     return render_template("redaction.html")
 
 @article.route("/savearticle", methods=["POST"])
