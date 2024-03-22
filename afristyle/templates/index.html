@@ -57,13 +57,13 @@ MAIN
                 <div id="back-2" style="height: 150px;    background-size:cover;    background-repeat: no-repeat;"></div>               
 				<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 					<h2 class="h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">{{articles[1].titre}}</a>
+					<a data-id="{{articles[1].id}}" class="article text-dark">{{articles[1].titre}}</a>
 					</h2>
 					<p class="card-text">
 						{{articles[1].description}}
 					</p>
 					<div>
-						<small class="d-block"><a class="text-muted" href="./author.html">AfriStyle</a></small>
+						<small class="d-block"><a class="text-muted">AfriStyle</a></small>
 						<small class="text-muted">{{articles[1].date_publication}}</small>
 					</div>
 				</div>
@@ -75,10 +75,10 @@ MAIN
 					<img height="80" src="./static/images/{{articles[2].image_principale}}">
 					<div class="pl-3">
 						<h2 class="mb-2 h6 font-weight-bold">
-						<a class="text-dark" href="./article.html">{{articles[2].titre}}</a>
+						<a data-id="{{articles[2].id}}" class=" article text-dark" >{{articles[2].titre}}</a>
 						</h2>
 						<div class="card-text text-muted small">
-							{{articles[3].description}}
+							{{articles[2].description}}
 						</div>
 						<small class="text-muted">{{articles[2].date_publication}}</small>
 					</div>
@@ -87,10 +87,10 @@ MAIN
 					<img height="80" src="./static/images/{{articles[3].image_principale}}">
 					<div class="pl-3">
 						<h2 class="mb-2 h6 font-weight-bold">
-						<a class="text-dark" href="./article.html">{{articles[3].titre}}</a>
+						<a data-id="{{articles[3].id}}" class="article text-dark">{{articles[3].titre}}</a>
 						</h2>
 						<div class="card-text text-muted small">
-							{{articles[4].description}}
+							{{articles[3].description}}
 						</div>
 						<small class="text-muted">{{articles[3].date_publication}}</small>
 					</div>
@@ -99,10 +99,10 @@ MAIN
 					<img height="80" src="./static/images/{{articles[4].image_principale}}">
 					<div class="pl-3">
 						<h2 class="mb-2 h6 font-weight-bold">
-						<a class="text-dark" href="./article.html">{{articles[4].titre}}</a>
+						<a data-id="{{articles[4].id}}" class="article text-dark" >{{articles[4].titre}}</a>
 						</h2>
 						<div class="card-text text-muted small">
-							{{articles[5].description}}
+							{{articles[4].description}}
 						</div>
 						<small class="text-muted">{{articles[4].date_publication}}</small>
 					</div>
@@ -119,7 +119,7 @@ MAIN
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">{{articles[5].titre}}</a>
+					<a data-id="{{articles[5].id}}" class=" article text-dark">{{articles[5].titre}}</a>
 					</h2>
 					<p>
 						{{articles[5].description}}
@@ -134,7 +134,7 @@ MAIN
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">{{articles[6].titre}}</a>
+					<a data-id="{{articles[6].id}}" class="article text-dark" >{{articles[6].titre}}</a>
 					</h2>
 					<p>
 						{{articles[6].description}}
@@ -149,7 +149,7 @@ MAIN
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="./article.html">{{articles[7].titre}}</a>
+					<a data-id="{{articles[7].id}}" class="article text-dark">{{articles[7].titre}}</a>
 					</h2>
 					<p>
 						{{articles[7].description}}
